@@ -46,7 +46,7 @@ questionNumber++
 function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
-  let i = [0]
+  let i = 0
 
 while (i < correctAnswers.length) {
 if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()){
@@ -56,21 +56,28 @@ if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()){
 }
 i++
 }
-
+i = 0;
   let grade;  //TODO 3.2 use this variable to calculate the candidates score.
-let numberOfCorrectAnswers = (Number())
-let numberOfQuestions = [0]
+let numberOfCorrectAnswers = 0
+let numberOfQuestions = 0
   while (i < correctAnswers.length) {
-    numberOfQuestions++
+    numberOfQuestions++;  
     if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()){
       numberOfCorrectAnswers++
-      grade = numberOfCorrectAnswers/numberOfQuestions * 100
+      
     } else {
       console.log(`You have answered ${questions[i]} incorrectly`)
     }
+    grade = (numberOfCorrectAnswers/numberOfQuestions) * 100
+      
     i++
     }
-
+    if (grade <= 80){
+console.log(`Your final grade is ${grade}% good job you've passed.`)
+    } else {
+    console.log(`Your final grade is ${grade}, you have failed.`)
+  }
+    
   return grade;
 }
 
